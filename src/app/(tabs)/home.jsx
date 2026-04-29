@@ -1,10 +1,19 @@
-import { StyleSheet, Text, View } from "react-native";
+import RestaurantCard from "@/components/home/RestaurantCard";
+import { mockRestaurants } from "@/data/mockRestaurants";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 
 export default function HomeScreen() {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>BiteDiary</Text>
-            <Text style={styles.subtitle}>Home Screen</Text>
+            <Text style={styles.header}>BiteDiary</Text>
+
+            <FlatList
+                data={mockRestaurants}
+                keyExtractor={(item) => item.id}
+                renderItem={({ item }) => <RestaurantCard restaurant={item} />}
+                contentContainerStyle={styles.list}
+                showsVerticalScrollIndicator={false}
+            />
         </View>
     );
 }
@@ -13,15 +22,16 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#f8f5f2",
-        alignItems: "center",
-        justifyContent: "center",
+        paddingTop: 60,
+        paddingHorizontal: 16,
     },
-    title: {
+    header: {
         fontSize: 28,
         fontWeight: "700",
+        marginBottom: 16,
+        color: "#2f2a26",
     },
-    subtitle: {
-        fontSize: 16,
-        color: "#897a72",
+    list: {
+        paddingBottom: 40,
     },
 });

@@ -1,4 +1,6 @@
-export const mockRestaurants = [
+import { Restaurant } from "@/types/restaurant";
+
+export const mockRestaurants: Restaurant[] = [
   {
     id: "1",
     name: "Sushi Katsu",
