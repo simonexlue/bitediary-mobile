@@ -1,3 +1,4 @@
+import DateVisitedPicker from "@/components/add-entry/DateVisitedPicker";
 import FormSection from "@/components/add-entry/FormSection";
 import RatingSelector from "@/components/add-entry/RatingSelector";
 import TagsSelector from "@/components/add-entry/TagsSelector";
@@ -80,9 +81,10 @@ export default function AddScreen() {
         </FormSection>
 
         <FormSection icon="□" title="Date Visited">
-          <TouchableOpacity style={styles.inputButton}>
-            <Text style={styles.placeholder}>Pick a date</Text>
-          </TouchableOpacity>
+          <DateVisitedPicker
+            value={form.dateTried}
+            onChange={(date) => updateForm("dateTried", date)}
+          />
         </FormSection>
 
         <FormSection icon="⌂" title="Dish Name" required>
