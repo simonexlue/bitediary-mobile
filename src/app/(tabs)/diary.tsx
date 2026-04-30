@@ -16,7 +16,7 @@ export default function DiaryScreen() {
   return (
     <Screen>
       <FlatList
-        contentContainerStyle={{ paddingBottom: 40 }}
+        contentContainerStyle={{ paddingBottom: 20 }}
         data={mockDiaryRestaurants}
         keyExtractor={(item) => item.id}
         ListHeaderComponent={

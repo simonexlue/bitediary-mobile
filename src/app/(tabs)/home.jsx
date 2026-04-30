@@ -17,7 +17,7 @@ export default function HomeScreen() {
     return (
         <Screen>
             <FlatList
-                contentContainerStyle={{ paddingBottom: 40 }}
+                contentContainerStyle={{ paddingBottom: 20 }}
                 data={mockEntries}
                 keyExtractor={(item) => item.id}
                 ListHeaderComponent={
