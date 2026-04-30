@@ -1,6 +1,7 @@
 import PalateCard from "@/components/home/PalateCard";
 import RecentEntryCard from "@/components/home/RecentEntryCard";
 import WelcomeCard from "@/components/home/WelcomeCard";
+import Screen from "@/components/ui/Screen";
 import { mockEntries } from "@/data/mockEntries";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 
@@ -14,38 +15,30 @@ const palateData = [
 
 export default function HomeScreen() {
     return (
-        <FlatList
-            style={styles.screen}
-            contentContainerStyle={styles.content}
-            data={mockEntries}
-            keyExtractor={(item) => item.id}
-            ListHeaderComponent={
-                <>
-                    <WelcomeCard />
-                    <PalateCard data={palateData} />
+        <Screen>
+            <FlatList
+                contentContainerStyle={{ paddingBottom: 40 }}
+                data={mockEntries}
+                keyExtractor={(item) => item.id}
+                ListHeaderComponent={
+                    <>
+                        <WelcomeCard />
+                        <PalateCard data={palateData} />
 
-                    <View style={styles.recentHeaderCard}>
-                        <Text style={styles.sectionLabel}>RECENT ENTRIES</Text>
-                        <Text style={styles.recentSubtext}>Your latest meals, in one clean list.</Text>
-                    </View>
-                </>
-            }
-            renderItem={({ item }) => <RecentEntryCard entry={item} />}
-            showsVerticalScrollIndicator={false}
-        />
+                        <View style={styles.recentHeaderCard}>
+                            <Text style={styles.sectionLabel}>RECENT ENTRIES</Text>
+                            <Text style={styles.recentSubtext}>Your latest meals, in one clean list.</Text>
+                        </View>
+                    </>
+                }
+                renderItem={({ item }) => <RecentEntryCard entry={item} />}
+                showsVerticalScrollIndicator={false}
+            />
+        </Screen>
     );
 }
 
 const styles = StyleSheet.create({
-    screen: {
-        flex: 1,
-        backgroundColor: "#f8f5f2",
-    },
-    content: {
-        paddingTop: 60,
-        paddingHorizontal: 16,
-        paddingBottom: 40,
-    },
     recentHeaderCard: {
         backgroundColor: "#fff",
         borderTopLeftRadius: 12,
